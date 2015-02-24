@@ -1,0 +1,15 @@
+# laravel
+.env
+.env.*.php
+.env.php
+
+# composer
+/vendor
+composer.phar
+/node_modules
+
+# systemfiles
+.DS_Store
+Thumbs.db
+
+
