@@ -11,11 +11,28 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+call_user_func(function() {
+    
+    $host = call_user_func(function() {
+        $e = explode('.', Request::root());
+        $n = count($e);
+        return $e[$n - 2].'.'.$e[$n - 1];
+    });
+    
+    Route::group(['domain' => 'www.'.$host], function()
+    {
+        Route::get('/', 'WelcomeController@index');
+    });
 
-Route::get('home', 'HomeController@index');
+    Route::group(['domain' => 'manage.'.$host], function()
+    {
+        Route::get('/', 'HomeController@index');
+        Route::get('/home', 'HomeController@index');
+        Route::controllers([
+            'auth' => 'Auth\AuthController',
+            'password' => 'Auth\PasswordController',
+            'account' => 'AccountController',
+        ]);
+    });
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);

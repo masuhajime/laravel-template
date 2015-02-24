@@ -39,7 +39,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accounts<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/accounts">List</a></li>
+                            <li><a href="/account/list">List</a></li>
                         </ul>
                     </li>
                     {{--
